@@ -188,6 +188,10 @@ document.addEventListener('DOMContentLoaded', function () {
     palindromoResult.textContent = "";
 
     palindromoInput.addEventListener('input', function() {
+
+        console.log(this.value, typeof this.value);
+        
+        
         
         //le hacemos trim al imput y lo llevamos a lowercase
         const invertir = this.value.trim().toLowerCase();
@@ -201,8 +205,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s (whitespaces).
         
         const invertirNoSpaces = invertir.replace(/\s+/g, '');
-        console.log(invertirNoSpaces);
-        
         const reverseNoSpaces = reverse.replace(/\s+/g, '');
 
         if (invertirNoSpaces === reverseNoSpaces) {
@@ -211,16 +213,21 @@ document.addEventListener('DOMContentLoaded', function () {
             palindromoResult.textContent = "No es palíndromo"
         }
         
-
+        //resetear el mensaje a vacio cuando se borre el contenido del input
         if (this === "") {
             palindromoResult.textContent = ""
         }
+
+        //ToDo
+        //Si es número, hablar de capicúa y no de palíndromo
     });
 
     
 });
 
 // 6 - Crear un programa que calcule el número Fibonacci en la posición (n).
+
+
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
 // 8 - Crear una función que cuente cuántas veces aparece un carácter en un string.
 // 9 - Escribir un algoritmo que determine si un año es bisiesto.
