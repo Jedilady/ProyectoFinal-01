@@ -178,6 +178,48 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 5 - Determinar si una palabra es un palíndromo.
+document.addEventListener('DOMContentLoaded', function () {
+    const palindromoInput = document.getElementById("palindromoInput");
+    const palindromoText = document.getElementById("palindromoText");
+    const palindromoResult = document.getElementById("palindromoResult");
+
+    //limpiamos nuestros contenidos
+    palindromoText.textContent = "";
+    palindromoResult.textContent = "";
+
+    palindromoInput.addEventListener('input', function() {
+        
+        //le hacemos trim al imput y lo llevamos a lowercase
+        const invertir = this.value.trim().toLowerCase();
+        //le hacemos reverse
+        const reverse = invertir.split('').reverse().join('');
+
+        palindromoText.textContent = reverse;
+
+        //creamos las constantes "NoSpaces" para comparar sin tener en cuenta espacios, y que ejemplos como "dabale arroz a la zorra el abad" pasen por correctos
+        //The Regex
+        // \s is the regex for "whitespace", and g is the "global" flag, meaning match ALL \s (whitespaces).
+        
+        const invertirNoSpaces = invertir.replace(/\s+/g, '');
+        console.log(invertirNoSpaces);
+        
+        const reverseNoSpaces = reverse.replace(/\s+/g, '');
+
+        if (invertirNoSpaces === reverseNoSpaces) {
+            palindromoResult.textContent = "Tenemos un palíndromo!"
+        } else {
+            palindromoResult.textContent = "No es palíndromo"
+        }
+        
+
+        if (this === "") {
+            palindromoResult.textContent = ""
+        }
+    });
+
+    
+});
+
 // 6 - Crear un programa que calcule el número Fibonacci en la posición (n).
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
 // 8 - Crear una función que cuente cuántas veces aparece un carácter en un string.
