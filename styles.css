@@ -1,0 +1,14 @@
+/* EJ 1*/
+
+#ej1, #ej2, #ej3 {
+    display: grid;
+}
+#ej1 #parImparInput.alert
+ {
+    border: 2px solid red;
+}
+#ej1  #parImparAlert {
+    height: 0.75rem;
+    color: red;
+    font-size: 0.75rem;
+}
