@@ -159,6 +159,20 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(factor);
 
         factorialText.textContent = `El factor de : ${baseNumber} es ${factor}`;
+
+        //Se puede hacer con while!
+        /*
+        function factorialize(baseNumber) {
+            let factor = baseNumber;
+            if (baseNumber === 0 || baseNumber === 1) 
+                return 1; 
+            while (baseNumber > 1) { 
+                baseNumber--;
+                result *= baseNumber;
+            }
+            return factor;
+        }
+        */
     });
 
 });
