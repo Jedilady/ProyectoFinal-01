@@ -226,7 +226,111 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 6 - Crear un programa que calcule el número Fibonacci en la posición (n).
+document.addEventListener("DOMContentLoaded", function () {
+    const fibonacciInput = document.getElementById("fibonacciInput");
+    const fibonacciAlert = document.getElementById("fibonacciAlert");
+    const fibonacciResult = document.getElementById("fibonacciResult");
+    const fibonacciBT = document.getElementById("fibonacciBT")
 
+    fibonacciInput.addEventListener('input', function () {
+        const data = parseInt(this.value);
+
+        //reseteamos los valores
+        fibonacciAlert.textContent = "";
+        fibonacciBT.disabled = true;
+        fibonacciResult.textContent = ""; 
+
+        if (this.value === "") {
+            //aquí NO usamos "data" porque luego de aplicar parseInt nos devuelve un NaN, no un vacío
+            return; // Importante: recuerda detener la función si hay un error!
+        }
+
+        //al vaciar manualmente el imput, reseteamos todo
+        if (this.value === "") { 
+            fibonacciResult.textContent = ""; // Borra el resultado
+            fibonacciBT.disabled = true;      // Desactiva el botón si está vacío
+            return;
+        }
+        
+        if (isNaN(data)) {
+            fibonacciAlert.textContent = "No es un número"
+        }else if (data < 0) {
+            fibonacciAlert.textContent = "Es un número negativo"
+        }else if ((this.value.includes('.') || this.value.includes(',')))
+            // NO puedo usar la var DATA  porque data es un número (resultado de parseInt(this.value)), y .includes() solo funciona con strings o arrays.
+            //y este modo me da problemas (data % 1 !== 0) 
+            {
+            fibonacciAlert.textContent = "No puedes ingresar decimales"
+        }else {
+            fibonacciBT.disabled = false;
+        }
+    })
+
+    /*
+    //Version mejorada de chatGPT
+    fibonacciInput.addEventListener('input', function () {
+    const value = this.value.trim(); // Elimina espacios en blanco
+    const data = parseInt(value);
+
+    // Reiniciar alertas y resultados
+    fibonacciAlert.textContent = "";
+    fibonacciResult.textContent = "";
+
+    // Condiciones de entrada inválida
+    const isEmpty = value === "";
+    const isNotNumber = isNaN(data);
+    const isNegative = data < 0;
+    const hasDecimal = value.includes('.') || value.includes(',');
+
+    if (isEmpty) {
+        fibonacciBT.disabled = true; // Desactiva si está vacío
+        return;
+    }
+
+    if (isNotNumber) {
+        fibonacciAlert.textContent = "No es un número";
+    } else if (isNegative) {
+        fibonacciAlert.textContent = "Es un número negativo";
+    } else if (hasDecimal) {
+        fibonacciAlert.textContent = "No puedes ingresar decimales";
+    }
+
+    // Activar o desactivar el botón según haya errores
+    fibonacciBT.disabled = isNotNumber || isNegative || hasDecimal;
+});
+    */
+
+    //si se declaran las variables iniciales fuera, no se resetean al re-invocar la función
+    /*
+    let a = 0;
+    let b = 1;
+    let suma = 0;
+    */
+
+    function fibo(param){
+
+        let a = 0;
+        let b = 1;
+        let suma;
+
+        if (param === 0) return fibonacciResult.textContent = `${a}`;
+        if (param === 1) return fibonacciResult.textContent = `${b}`;
+
+        for(let i = 2; i <= param; i++) {
+            suma = a + b;
+            a = b;
+            b = suma;
+        }
+
+        return fibonacciResult.textContent = `${b}`;
+    };
+
+    fibonacciBT.addEventListener('click', function () {
+        fibo(fibonacciInput.value);
+    })
+
+    
+})
 
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
 // 8 - Crear una función que cuente cuántas veces aparece un carácter en un string.
