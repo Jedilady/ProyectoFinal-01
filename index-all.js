@@ -129,6 +129,40 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 4 - Crear un algoritmo que devuelva el factorial de un número.
+document.addEventListener('DOMContentLoaded', function () {
+    const numFactorialRdmBT = document.getElementById("numFactorialRdmBT");
+    const factorialText = document.getElementById("factorialText");
+
+    numFactorialRdmBT.addEventListener('click', function() {
+
+        //vaciamos nuestros elementos
+        factorialText.textContent = "";
+
+        //obtenemos un número random, lo multiplicamos por 20 como tope, + 1 para que nunca sea cero y lo almacenamos en una variable
+        let baseNumber = Math.floor(Math.random() * 20);
+        console.log(baseNumber);
+
+        let factor = baseNumber;
+
+        //controlamos manualmente que 0! = 1
+        if (baseNumber == 0) {
+            return factorialText.textContent = `El factor de : ${baseNumber} es ${1}`;
+        }
+
+        //creamos la variable que almacenará el resultado
+        //const factorizado;
+        
+        //usamos un for para el cálculo, donde multiplicamos n * n-1 * n -2... etc
+        for (let i = factor; i >= 1; i--) {
+            factor = factor * i;
+        }
+        console.log(factor);
+
+        factorialText.textContent = `El factor de : ${baseNumber} es ${factor}`;
+    });
+
+});
+
 // 5 - Determinar si una palabra es un palíndromo.
 // 6 - Crear un programa que calcule el número Fibonacci en la posición (n).
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
