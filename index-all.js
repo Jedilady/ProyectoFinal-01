@@ -333,9 +333,43 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 // 7 - Ordenar un array de números en orden ascendente (sin usar sort).
+
+//No lo entiendo, me faltan conocimientos y lógica, y demasiada práctica... lo dejo para luego, porque no lo veo
+
 // 8 - Crear una función que cuente cuántas veces aparece un carácter en un string.
 // 9 - Escribir un algoritmo que determine si un año es bisiesto.
+
+//Cómo se calcula un bisiesto: 
+// Es divisible por 4, pero NO por 100.
+// Es divisible por 400.
+// Si es múltiplo de 100 pero NO de 400, entonces NO es bisiesto.
+
+function bisiesto(paramYear) {
+    if ((paramYear % 4 === 0 && paramYear % 100 !== 0) || paramYear % 400 === 0) {
+        console.log(`${paramYear} es bisiesto`);
+    } else {
+        console.log(`${paramYear} no es bisiesto`);
+    }
+}
+
+bisiesto(2024);
+
+
 // 10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.
+
+function conversion(grados) {
+
+    const celToF = (grados) => {
+        return (grados * 9 / 5) + 32;
+    }
+
+    const farToCel = (grados) => {
+        return (grados - 32) * 5 / 9;
+    }
+
+}
+
+
 // 11 - Encontrar el segundo número más grande en un array.
 // 12 - Escribir una función que elimine los elementos duplicados de un array.
 // 13 - Crear un algoritmo que sume todos los números de un array.
