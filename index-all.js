@@ -355,22 +355,7 @@ function bisiesto(paramYear) {
 bisiesto(2024);
 
 
-// 10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.
-
-function conversion(grados) {
-
-    const celToF = (grados) => {
-        return (grados * 9 / 5) + 32;
-    }
-
-    const farToCel = (grados) => {
-        return (grados - 32) * 5 / 9;
-    }
-
-}
-
-
-// 11 - Encontrar el segundo número más grande en un array.
+// 10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.// 11 - Encontrar el segundo número más grande en un array.
 // 12 - Escribir una función que elimine los elementos duplicados de un array.
 // 13 - Crear un algoritmo que sume todos los números de un array.
 // 14 - Escribir un programa que verifique si dos strings son anagramas.
