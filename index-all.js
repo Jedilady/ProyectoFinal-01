@@ -355,7 +355,64 @@ function bisiesto(paramYear) {
 bisiesto(2024);
 
 
-// 10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.// 11 - Encontrar el segundo número más grande en un array.
+// 10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.
+
+//Qué tengo que hacer?
+//Tengo que preguntarle al usuario los grados y cómo quiere hacer la conversión
+// para cada tipo de conversión, creo una función con la fórmula
+//entonces, tengo que crear un docu que escuche al usuario, un input para escuchar los grados, y un select para seleccionar el tipo de conversion, y un text para mostrar el resultado
+//extra: confirmar que el usuario no está introduciendo texto ni decimales
+document.addEventListener("DOMContentLoaded", function () {
+    //llamamos las constantes que representan los elementos del documento
+    const conversionCFInput = document.getElementById("conversionCFInput");
+    const conversionCFSelect = document.getElementById("conversionCFSelect");
+    const conversionCFBT = document.getElementById("conversionCFBT");
+    const conversionCFAlert = document.getElementById("conversionCFAlert");
+    const conversionCFResult = document.getElementById("conversionCFResult");
+
+    // creamos las funciones de las fórmulas
+    //Cel to Far
+    const celToF = (grados) => {
+        return (grados * 9 / 5) + 32;
+    }
+    //Far to Cel
+    const farToCel = (grados) => {
+        return (grados - 32) * 5 / 9;
+    }
+    
+    //Establecemos la información que se obtendrá del usuario y cómo la mostraremos. A diferencia de antes, no usamos el input porque no nos interesa que se haga el cálculo mientras el usuario escribe, sino hasta que está listo. No hace falta tampoco deshabilitar el botón
+    conversionCFBT.addEventListener('click', function () {
+
+        //establecemos las constantes que traen los valores
+        const grados = conversionCFInput.value;
+        const tipoConversion = conversionCFSelect.value;
+
+        if (grados !== "" && tipoConversion !== "") {
+            conversionCFBT.disabled = false;
+        }
+
+        if (tipoConversion === "CeltoF") {
+            let resultado = celToF(Number(grados));
+            conversionCFResult.textContent(`${grados} C equivale a ${resultado} F`)
+        } else if (tipoConversion === "FarToCel") {
+            let resultado = farToCel(Number(grados));
+            conversionCFResult.textContent(`${grados} F equivale a ${resultado} C`)
+        } else if (grados === "") {
+            conversionCFAlert.textContent("Introduce un número válido")
+        }
+
+    //Limpiamos y reseteamos
+
+    })
+
+
+})
+
+function conversion(grados) {
+
+}
+
+// 11 - Encontrar el segundo número más grande en un array.
 // 12 - Escribir una función que elimine los elementos duplicados de un array.
 // 13 - Crear un algoritmo que sume todos los números de un array.
 // 14 - Escribir un programa que verifique si dos strings son anagramas.

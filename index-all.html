@@ -58,6 +58,24 @@
         <p>Resultado:</p>
         <p id="fibonacciResult"></p>
     </div>
+    
+    <div id="ej10" class="grid">
+        <h2>10 - Crear un programa que convierta grados Celsius a Fahrenheit y viceversa.</h2>
+        <label for="conversionCFInput">Introduce los grados</label>
+        <input type="text" name="conversionCFInput" id="conversionCFInput">
+        <label for="conversionCFSelect">Escoge el tipo de conversión</label>
+        <select name="conversionCFSelect" id="conversionCFSElect">
+            <option>
+                Selecciona...
+            </option>
+            <option value="CeltoF">Celcius to Farenheit</option>
+            <option value="FarToCel">Farenheit to Celcius</option>
+        </select>
+        <button type="button" id="conversionCFBT" disabled>Calcular valor</button>
+        <span id="conversionCFAlert"></span>
+        <p>Resultado:</p>
+        <p id="conversionCFResult"></p>
+    </div>
     <script src="./index-all.js" type="module"></script>
 </body>
 </html>
